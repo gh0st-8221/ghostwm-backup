@@ -153,7 +153,7 @@ int main() {
     snprintf(readme_path, sizeof(readme_path), "%s/README.md", tmp_base);
     FILE *f = fopen(readme_path, "w");
     if (f) {
-        fprintf(f, "# GhostWM Dotfiles\n\nAwesome ArchLinux ghostwm helix rice, heavily styled with Catppuccin Mocha everywhere. To install, run:\n\n```bash\ngit clone [https://github.com/gh0st-8221/ghostwm-dotfiles](https://github.com/gh0st-8221/ghostwm-dotfiles)\ncd ghostwm-dotfiles\nchmod +x ./install.sh\n./install.sh\n```\n\nPackage installation won't work on non-Arch distros, and systemd might fail if you use something cooler like OpenRC or runit.\n");
+        fprintf(f, "# GhostWM Dotfiles\n\nAwesome ArchLinux ghostwm helix rice, heavily styled with Catppuccin Mocha everywhere. To install, run:\n\n```bash\ngit clone https://github.com/gh0st-8221/ghostwm-dotfiles\ncd ghostwm-dotfiles\nchmod +x ./install.sh\n./install.sh\n```\n\nPackage installation won't work on non-Arch distros, and systemd might fail if you use something cooler like OpenRC or runit.\n");
         fclose(f);
     }
 
