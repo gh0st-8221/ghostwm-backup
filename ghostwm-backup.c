@@ -71,14 +71,15 @@ int main() {
     create_dirs(tmp_base);
 
     const char *configs[] = {
-        "alacritty", "ghostwm", "rofi", "gtk-4.0", "helix", "polybar", "dunst", "bottom"
+        "alacritty", "ghostwm", "rofi", "gtk-4.0", "helix", "dunst", "bottom"
     };
 
     char config_dst[1024];
     snprintf(config_dst, sizeof(config_dst), "%s/.config", tmp_base);
     create_dirs(config_dst);
 
-    for (int i = 0; i < 8; i++) {
+    size_t num_configs = sizeof(configs) / sizeof(configs[0]);
+    for (size_t i = 0; i < num_configs; i++) {
         char src[1024];
         snprintf(src, sizeof(src), "%s/.config/%s", home, configs[i]);
         if (file_exists(src)) {
@@ -152,7 +153,7 @@ int main() {
     snprintf(readme_path, sizeof(readme_path), "%s/README.md", tmp_base);
     FILE *f = fopen(readme_path, "w");
     if (f) {
-        fprintf(f, "# GhostWM Dotfiles\n\nAwesome ArchLinux ghostwm polybar helix rice, heavily styled with Catppuccin Mocha everywhere. To install, run:\n\n```bash\ngit clone https://github.com/gh0st-8221/ghostwm-dotfiles\ncd ghostwm-dotfiles\nchmod +x ./install.sh\n./install.sh\n```\n\nPackage installation won't work on non-Arch distros, and systemd might fail if you use something cooler like OpenRC or runit.\n");
+        fprintf(f, "# GhostWM Dotfiles\n\nAwesome ArchLinux ghostwm helix rice, heavily styled with Catppuccin Mocha everywhere. To install, run:\n\n```bash\ngit clone [https://github.com/gh0st-8221/ghostwm-dotfiles](https://github.com/gh0st-8221/ghostwm-dotfiles)\ncd ghostwm-dotfiles\nchmod +x ./install.sh\n./install.sh\n```\n\nPackage installation won't work on non-Arch distros, and systemd might fail if you use something cooler like OpenRC or runit.\n");
         fclose(f);
     }
 
